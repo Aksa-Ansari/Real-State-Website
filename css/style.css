@@ -71,30 +71,37 @@ section{
 }
 
 .btn,
-.inline-btn{
+.inline-btn {
    margin-top: 1rem;
    padding: 1rem 3rem;
-   background-color: var(--main-color);
+   background: linear-gradient(135deg, var(--main-color), #ff8a00);
    color: var(--white);
    cursor: pointer;
    text-align: center;
    font-size: 1.8rem;
    text-transform: capitalize;
+   border: none;
+   border-radius: 0.8rem;
+   transition: 0.3s ease;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover,
-.inline-btn:hover{
-   background-color: var(--black);
+.inline-btn:hover {
+   background: linear-gradient(135deg, #222, var(--main-color));
+   transform: scale(1.03);
+   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
-.btn{
+.btn {
    display: block;
    width: 100%;
 }
 
-.inline-btn{
+.inline-btn {
    display: inline-block;
 }
+
 
 .flex-btn{
    display: flex;
@@ -159,11 +166,15 @@ section{
    font-size: 1.8rem;
    color: var(--black);
    background-color: var(--white);
+   transition: all 0.3s ease;
+   border-radius: 0.4rem;
 }
 
 .header .navbar .flex ul li a:hover{
    background-color: var(--main-color);
    color: var(--white);
+   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+   transform: translateY(-2px);
 }
 
 .header .navbar .flex ul li a i{
@@ -194,62 +205,84 @@ section{
    display: none;
 }
 
-.home{
-   background:url('../images/home-bg.jpg') no-repeat;
-   background-size: cover;
-   background-position: center;
-}
-
-.home .center{
+.home {
    min-height: 85vh;
+   background: url('https://t3.ftcdn.net/jpg/03/02/07/94/360_F_302079439_YMNmClmBo0O6F626ETIO3M8IUeSzAL2Z.jpg') no-repeat center center;
+   background-size: cover;
    display: flex;
    align-items: center;
    justify-content: center;
-}
-
-.home .center form{
-   background-color: var(--white);
    padding: 2rem;
-   box-shadow: var(--box-shodow);
-   width: 50rem;
 }
 
-.home .center form h3{
-   padding-bottom: 1rem;
+.home .center {
+   width: 100%;
+   max-width: 600px;
+}
+
+.home .center form {
+   background-color: var(--white);
+   padding: 2.5rem;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Thoda glow wala shadow */
+   border-radius: 1rem;
+   transition: transform 0.3s ease;
+}
+
+.home .center form:hover {
+   transform: scale(1.01); /* Slight zoom on hover */
+}
+
+.home .center form h3 {
+   padding-bottom: 1.5rem;
    text-align: center;
    color: var(--black);
    text-transform: capitalize;
-   font-size: 2.5rem;
+   font-size: 2.6rem;
+   font-weight: 600;
+   letter-spacing: 1px;
 }
 
-.home .center form .flex{
+.home .center form .flex {
    display: flex;
-   gap:1rem;
+   gap: 1.5rem;
    flex-wrap: wrap;
 }
 
-.home .center form .box{
+.home .center form .box {
    flex: 1 1 20rem;
 }
 
-.home .center form .box .input{
+.home .center form .box .input {
    width: 100%;
    border: var(--border);
    padding: 1.4rem;
    color: var(--black);
-   font-size: 1.8rem;
+   font-size: 1.7rem;
    margin: 1rem 0;
+   border-radius: 0.6rem;
+   background-color: #f9f9f9;
+   transition: 0.3s ease;
 }
 
-.home .center form .box p{
+.home .center form .box .input:focus {
+   outline: none;
+   border-color: var(--main-color);
+   background-color: #fff;
+   box-shadow: 0 0 5px var(--main-color);
+}
+
+.home .center form .box p {
    color: var(--light-color);
-   font-size: 1.7rem;
+   font-size: 1.6rem;
    padding-top: 1rem;
 }
 
-.home .center form .box p span{
+.home .center form .box p span {
    color: var(--main-color);
+   cursor: pointer;
+   text-decoration: underline;
 }
+
 
 .services .box-container{
    display: grid;
@@ -264,11 +297,38 @@ section{
    box-shadow: var(--box-shodow);
    padding: 2rem;
    text-align: center;
+   border-radius: 0.8rem;
+   transition: all 0.3s ease-in-out;
+   transform: translateY(0);
 }
 
+.services .box-container .box:hover {
+   box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.15);
+   transform: translateY(-5px);
+}
 .services .box-container .box img{
    margin: 1rem 0;
    height: 8rem;
+   transition: transform 0.3s ease;
+}
+
+.services .box-container .box:hover img {
+   transform: scale(1.1);
+}
+
+.listings .box-container form .box .thumb::after {
+   content: '';
+   position: absolute;
+   top: 0; left: 0;
+   height: 100%;
+   width: 100%;
+   background: rgba(0, 0, 0, 0.2);
+   opacity: 0;
+   transition: opacity 0.3s ease;
+}
+
+.listings .box-container form .box .thumb:hover::after {
+   opacity: 1;
 }
 
 .services .box-container .box h3{
@@ -284,10 +344,12 @@ section{
    color: var(--light-color);
    padding-top: .5rem;
 }
-
 .listings .box-container{
    display: grid;
    row-gap: 2rem;
+   max-width: 1000px;
+   margin: 0 auto;
+   padding: 0 1rem;
 }
 
 .listings .box-container form{
@@ -298,6 +360,14 @@ section{
    gap: 2rem;
    flex-wrap: wrap;
    align-items: center;
+   transition: all 0.3s ease-in-out;
+   border-radius: 1rem;
+}
+
+.listings .box-container form:hover {
+   transform: scale(1.01);
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .listings .box-container form .box{
@@ -307,15 +377,24 @@ section{
 
 .listings .box-container form .box .thumb{
    height: 30rem;
+   height: 30rem;
    position: relative;
    margin: 1.5rem 0;
+   overflow: hidden;
+   border-radius: .7rem;
 }
 
 .listings .box-container form .box .thumb img{
    height: 100%;
    width: 100%;
    object-fit: cover;
+   transition: transform 0.5s ease;
 }
+
+.listings .box-container form .box .thumb:hover img {
+   transform: scale(1.1);
+}
+
 
 .listings .box-container form .box .save{
    padding: 1rem 3rem;
@@ -390,6 +469,12 @@ section{
 .listings .box-container form .box .price{
    font-size: 2rem;
    color: var(--main-color);
+   cursor: pointer;
+   transition: color 0.3s ease;
+}
+
+.listings .box-container form .box .price:hover {
+   color: #e67e22;
 }
 
 .listings .box-container form .box .price i{
@@ -402,12 +487,24 @@ section{
    color: var(--black);
    line-height: 1.5;
    text-overflow: ellipsis;
+   cursor: pointer;
+   transition: color 0.3s ease;
+}
+
+.listings .box-container form .box .name:hover {
+   color: var(--main-color);
 }
 
 .listings .box-container form .box .location{
    font-size: 1.7rem;
    color: var(--light-color);
    padding-bottom: 1rem;
+   cursor: pointer;
+   transition: color 0.3s ease;
+}
+
+.listings .box-container form .box .location:hover {
+   color: var(--main-color);
 }
 
 .listings .box-container form .box .location i{
@@ -428,6 +525,14 @@ section{
 .listings .box-container form .box .flex p{
    font-size: 1.7rem;
    flex: 1 1 20rem;
+   transition: background-color 0.3s ease;
+   cursor: default;
+}
+
+.listings .box-container form .box .flex p:hover {
+   background-color: var(--white);
+   border-radius: 0.5rem;
+   padding: 0.5rem;
 }
 
 .listings .box-container form .box .flex p i{
@@ -620,6 +725,7 @@ section{
    flex-wrap: wrap;
    gap: 1.5rem;
    align-items: center;
+   margin-top: 0
 }
 
 .about .row .image{
@@ -649,142 +755,227 @@ section{
    color: var(--light-color);
 }
 
-.steps .box-container{
+.steps .box-container {
    display: grid;
    grid-template-columns: repeat(auto-fit, 30rem);
    gap: 2rem;
    justify-content: center;
-   align-items: flex-start;
+   align-items: stretch; /* 🔥 Yeh line add karo */
 }
 
-.steps .box-container .box{
+.steps .box-container .box {
    background-color: var(--white);
    padding: 2rem;
    text-align: center;
-   box-shadow: var(--box-shodow);
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); 
+   border-radius: 1rem; 
+   transition: all 0.3s ease;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
 
-.steps .box-container .box img{
+
+.steps .box-container .box:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.steps .box-container .box img {
    height: 7rem;
-   margin: .5rem 0;
+   margin: 1rem auto; 
+   object-fit: contain;
+   display: block;
 }
 
-.steps .box-container .box h3{
-   padding: 1rem 0;
-   font-size: 2rem;
+
+.steps .box-container .box h3 {
+   padding: 1rem 0 0.5rem;
+   font-size: 2.2rem;
    text-transform: capitalize;
    color: var(--black);
+   font-weight: 600;
 }
 
-.steps .box-container .box p{
-   line-height: 2;
+.steps .box-container .box p {
+   line-height: 1.8;
    font-size: 1.6rem;
    color: var(--light-color);
 }
 
-.reviews .box-container{
+
+.reviews .box-container {
    display: grid;
-   grid-template-columns: repeat(auto-fit, 35rem);
+   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
    gap: 2rem;
    justify-content: center;
    align-items: flex-start;
 }
 
-.reviews .box-container .box{
+.reviews .box-container .box {
    background-color: var(--white);
    padding: 2rem;
-   box-shadow: var(--box-shodow);
+   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+   border-radius: 1rem;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   position: relative;
 }
 
-.reviews .box-container .box .user{
+.reviews .box-container .box:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.reviews .box-container .box::before {
+   content: "❝";
+   font-size: 4rem;
+   color: var(--main-color);
+   position: absolute;
+   top: 1rem;
+   left: 1.5rem;
+   opacity: 0.1;
+}
+
+.reviews .box-container .box .user {
    display: flex;
    align-items: center;
    gap: 1.5rem;
-   margin-bottom: 1rem;
+   margin-bottom: 1.5rem;
 }
 
-.reviews .box-container .box .user img{
+.reviews .box-container .box .user img {
    height: 6rem;
    width: 6rem;
    border-radius: 50%;
+   object-fit: cover;
+   border: 2px solid var(--main-color);
 }
 
-.reviews .box-container .box .user h3{
+.reviews .box-container .box .user h3 {
    font-size: 2rem;
    color: var(--black);
    padding-bottom: .3rem;
 }
 
-.reviews .box-container .box .user .stars i{
+.reviews .box-container .box .user .stars i {
    font-size: 1.5rem;
    color: var(--main-color);
 }
 
-.reviews .box-container .box p{
-   line-height: 2;
+.reviews .box-container .box p {
+   line-height: 1.8;
    padding-top: .5rem;
    font-size: 1.6rem;
    color: var(--light-color);
+   text-align: justify;
 }
 
-.contact .row{
+
+.contact .row {
    display: flex;
    flex-wrap: wrap;
-   gap: 1.5rem;
+   gap: 2rem;
    align-items: center;
+   justify-content: center;
+   padding: 4rem 2rem;
 }
 
-.contact .row .image{
-   flex: 1 1 50rem;
+.contact .row .image {
+   flex: 1 1 45rem;
 }
 
-.contact .row .image img{
+.contact .row .image img {
    width: 100%;
+   border-radius: 1rem;
+   object-fit: cover;
+   
 }
 
-.contact .row form{
-   flex: 1 1 30rem;
+
+.contact .row form {
+   flex: 1 1 35rem;
+   max-width: 500px; /* 👈 Yeh line add karo */
+   margin: 0 auto; /* 👈 Center karne ke liye */
    background-color: var(--white);
-   box-shadow: var(--box-shodow);
-   padding: 2rem;
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+   padding: 3rem 2rem;
+   border-radius: 1rem;
+   transition: transform 0.3s ease;
+}
+   
+
+
+.contact .row form:hover {
+   transform: translateY(-5px);
 }
 
-.contact .row form h3{
+.contact .row form h3 {
    padding-bottom: 1rem;
    font-size: 2.5rem;
    color: var(--black);
    text-align: center;
    text-transform: capitalize;
+   position: relative;
 }
 
-.contact .row form .box{
+.contact .row form h3::after {
+   content: '';
+   width: 60px;
+   height: 3px;
+   background: var(--main-color);
+   display: block;
+   margin: 0.5rem auto 0;
+   border-radius: 5px;
+}
+
+.contact .row form .box {
    width: 100%;
-   border: var(--border);
+   border: 1px solid #ddd;
    padding: 1.4rem;
    color: var(--black);
-   font-size: 1.8rem;
-   margin: 1rem 0;
+   font-size: 1.6rem;
+   margin: 1.2rem 0;
+   border-radius: 0.5rem;
+   transition: 0.3s;
+   background-color: #f9f9f9;
 }
 
-.contact .row form textarea{
+.contact .row form .box:focus {
+   border-color: var(--main-color);
+   background-color: #fff;
+   outline: none;
+   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.contact .row form textarea {
    height: 15rem;
    resize: none;
 }
 
 
-.faq .box-container{
+
+.faq .box-container {
    display: flex;
    flex-wrap: wrap;
    gap: 2rem;
    align-items: flex-start;
 }
 
-.faq .box-container .box{
+.faq .box-container .box {
    flex: 1 1 40rem;
    box-shadow: var(--box-shodow);
+   border-radius: 1rem;
+   overflow: hidden;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   background-color: var(--white);
 }
 
-.faq .box-container .box h3{
+.faq .box-container .box:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.faq .box-container .box h3 {
    padding: 1.5rem 2rem;
    font-size: 2rem;
    background-color: var(--black);
@@ -794,139 +985,208 @@ section{
    justify-content: space-between;
    gap: 1rem;
    cursor: pointer;
+   transition: background-color 0.3s ease;
 }
 
-.faq .box-container .box p{
+.faq .box-container .box h3 i {
+   transition: transform 0.3s ease;
+}
+
+.faq .box-container .box.active h3 {
+   background-color: var(--main-color);
+}
+
+.faq .box-container .box.active h3 i {
+   transform: rotate(180deg);
+}
+
+.faq .box-container .box p {
    font-size: 1.6rem;
    color: var(--light-color);
    background-color: var(--white);
    padding: 1.5rem 2rem;
-   line-height: 1.5;
+   line-height: 1.7;
    display: none;
+   animation: fadeIn 0.3s ease-in-out;
 }
 
-.faq .box-container .box.active p{
+.faq .box-container .box.active p {
    display: block;
 }
 
-.faq .box-container .box.active h3{
-   background-color: var(--main-color);
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+      transform: translateY(-10px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
 }
 
-.filters form{
+
+.filters form {
    background-color: var(--white);
-   box-shadow: var(--box-shodow);
    padding: 2rem;
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+   border-radius: 1rem;
+   transition: all 0.3s ease;
 }
 
-.filters form #close-filter{
+.filters form #close-filter {
    text-align: right;
-   padding-bottom: 2rem;
+   padding-bottom: 1rem;
    display: none;
 }
 
-.filters form #close-filter i{
+.filters form #close-filter i {
    height: 4.5rem;
    width: 4.5rem;
-   line-height: 4.4rem;
+   line-height: 4.5rem;
    background-color: var(--main-color);
    color: var(--white);
-   cursor: pointer;
    font-size: 2rem;
    text-align: center;
+   border-radius: 50%;
+   cursor: pointer;
+   transition: 0.3s ease;
 }
 
-.filters form #close-filter i:hover{
+.filters form #close-filter i:hover {
    background-color: var(--black);
 }
 
-.filters form h3{
+.filters form h3 {
    font-size: 2.5rem;
-   padding-bottom: 2rem;
+   text-align: center;
+   padding-bottom: 1rem;
    color: var(--black);
    text-transform: capitalize;
-   text-align: center;
+   font-weight: 600;
+   border-bottom: 1px solid var(--border);
+   margin-bottom: 2rem;
 }
 
-.filters form .flex{
+.filters form .flex {
    display: flex;
-   gap: 1rem;
+   gap: 1.5rem;
    flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: flex-end;
 }
 
-.filters form .flex .box{
+.filters form .flex .box {
    flex: 1 1 40rem;
 }
 
-.filters form .flex .box .input{
+.filters form .flex .box .input {
    width: 100%;
-   margin: 1rem 0;
-   font-size: 1.8rem;
-   color: var(--black);
    border: var(--border);
+   border-radius: 0.6rem;
+   margin: 1rem 0;
    padding: 1.4rem;
+   color: var(--black);
+   font-size: 1.8rem;
+   background-color: #f9f9f9;
+   transition: 0.3s ease;
 }
 
-.filters form .flex .box p{
+.filters form .flex .box .input:focus {
+   background-color: #fff;
+   border-color: var(--main-color);
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+   outline: none;
+}
+
+.filters form .flex .box p {
    font-size: 1.6rem;
    color: var(--light-color);
+   padding-top: 0.5rem;
 }
 
-#filter-btn{
+#filter-btn {
    position: fixed;
-   bottom: 1rem; right: 1rem;
-   background-color: var(--border);
+   bottom: 1rem;
+   right: 1rem;
+   background-color: var(--main-color);
    color: var(--white);
    text-align: center;
    height: 4.5rem;
    width: 4.5rem;
-   line-height: 4.4rem;
+   line-height: 4.5rem;
    z-index: 1000;
    font-size: 2rem;
-   background-color: var(--main-color);
+   border-radius: 50%;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
    display: none;
+   cursor: pointer;
+   transition: 0.3s ease;
 }
 
-.form-container form{
+#filter-btn:hover {
+   background-color: var(--black);
+}
+
+/* ---------------------- */
+
+.form-container form {
    max-width: 50rem;
    margin: 0 auto;
    background-color: var(--white);
-   box-shadow: var(--box-shodow);
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
    padding: 2rem;
    text-align: center;
+   border-radius: 1rem;
+   transition: all 0.3s ease;
 }
 
-.form-container form h3{
+.form-container form h3 {
    padding-bottom: 1rem;
    font-size: 2.5rem;
    color: var(--black);
    text-transform: capitalize;
+   font-weight: 600;
+   border-bottom: 1px solid var(--border);
+   margin-bottom: 2rem;
 }
 
-.form-container form .box{
+.form-container form .box {
    border: var(--border);
    padding: 1.4rem;
    color: var(--black);
    margin: 1rem 0;
    width: 100%;
    font-size: 1.8rem;
+   border-radius: 0.6rem;
+   background-color: #f9f9f9;
+   transition: 0.3s ease;
 }
 
-.form-container form p{
+.form-container form .box:focus {
+   background-color: #fff;
+   border-color: var(--main-color);
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+   outline: none;
+}
+
+.form-container form p {
    font-size: 1.7rem;
    padding: 1rem 0;
    color: var(--light-color);
 }
 
-.form-container form p a{
+.form-container form p a {
    color: var(--main-color);
+   transition: 0.3s ease;
 }
 
-.form-container form p a:hover{
+.form-container form p a:hover {
    text-decoration: underline;
+   color: var(--black);
 }
 
-.dashboard .box-container{
+.dashboard .box-container {
    display: grid;
    grid-template-columns: repeat(auto-fit, 35rem);
    gap: 1.5rem;
@@ -934,21 +1194,34 @@ section{
    align-items: flex-start;
 }
 
-.dashboard .box-container .box{
+.dashboard .box-container .box {
    background-color: var(--white);
-   box-shadow: var(--box-shodow);
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* subtle shadow */
    padding: 2rem;
    text-align: center;
    overflow-x: hidden;
+   border-radius: 1rem; /* rounded corners */
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.dashboard .box-container .box h3{
+.dashboard .box-container .box:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* lift effect */
+}
+
+.dashboard .box-container .box h3 {
    font-size: 2.5rem;
    color: var(--black);
    text-transform: capitalize;
+   margin-bottom: 1rem;
+   transition: color 0.3s ease;
 }
 
-.dashboard .box-container .box p{
+.dashboard .box-container .box:hover h3 {
+   color: var(--main-color); /* pop color on hover */
+}
+
+.dashboard .box-container .box p {
    margin: 1.5rem 0;
    font-size: 1.6rem;
    background-color: var(--light-bg);
@@ -956,23 +1229,33 @@ section{
    color: var(--light-color);
    overflow-x: hidden;
    text-overflow: ellipsis;
+   border-radius: 0.8rem; /* smooth corners */
+   transition: background-color 0.3s ease;
 }
 
-.property-form form{
+.dashboard .box-container .box:hover p {
+   background-color: #eef6ff; /* soft hover color */
+}
+
+
+.property-form form {
    background-color: var(--white);
    padding: 2rem;
-   box-shadow: var(--box-shodow);
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+   border-radius: 1rem;
+   transition: all 0.3s ease;
 }
 
-.property-form form h3{
+.property-form form h3 {
    font-size: 3rem;
    text-align: center;
    padding-bottom: 1rem;
    color: var(--black);
    text-transform: capitalize;
+   font-weight: 600;
 }
 
-.property-form form .flex{
+.property-form form .flex {
    display: flex;
    flex-wrap: wrap;
    column-gap: 1.5rem;
@@ -980,62 +1263,76 @@ section{
    align-items: flex-end;
 }
 
-.property-form form .box{
+.property-form form .box {
    flex: 1 1 40rem;
 }
 
-.property-form form .box .input{
+.property-form form .box .input {
    width: 100%;
    border: var(--border);
+   border-radius: 0.6rem;
    margin: 1rem 0;
    padding: 1.4rem;
    color: var(--black);
    font-size: 1.8rem;
+   background-color: #f9f9f9;
+   transition: 0.3s;
 }
 
-.property-form form textarea{
+.property-form form .box .input:focus {
+   background-color: #fff;
+   border-color: var(--main-color);
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+   outline: none;
+}
+
+.property-form form textarea {
    height: 20rem;
    resize: none;
+   border-radius: 0.6rem;
 }
 
-.property-form form .box .input option[selected]{
+.property-form form .box .input option[selected] {
    background-color: var(--black);
    color: var(--white);
 }
 
-.property-form form .box .image{
+.property-form form .box .image {
    height: 30rem;
    width: 100%;
    object-fit: contain;
    padding-top: 1rem;
    object-position: left;
+   border-radius: 0.6rem;
 }
 
-.property-form form .box p{
+.property-form form .box p {
    font-size: 1.6rem;
    color: var(--light-color);
    padding-top: 1rem;
 }
 
-.property-form form .box p span{
+.property-form form .box p span {
    color: var(--main-color);
+   font-weight: 500;
 }
 
-.property-form form .checkbox{
+.property-form form .checkbox {
    display: flex;
    justify-content: space-between;
    padding-bottom: 1rem;
-   margin: .5rem 0;
+   margin: 0.5rem 0;
    flex-wrap: wrap;
 }
 
-.property-form form .checkbox .box{
+.property-form form .checkbox .box {
    flex: 1 1 20rem;
 }
 
-.property-form form .checkbox .box input{
+.property-form form .checkbox .box input {
    margin-right: 1rem;
    cursor: pointer;
+   transform: scale(1.1);
 }
 
 .my-listings .box-container {

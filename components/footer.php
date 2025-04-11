@@ -29,7 +29,7 @@
 
    </section>
 
-   <div class="credit">&copy; copyright @ <?= date('Y'); ?> by <span>Aksa Ansari</span> | all rights reserved!</div>
+   <div class="credit">&copy; copyright @ <?= date('Y'); ?> by <span>Aksa and Vannu</span> | all rights reserved!</div>
 
 </footer>
 
